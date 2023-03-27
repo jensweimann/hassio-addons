@@ -1,0 +1,28 @@
+name: Squid Proxy
+version: "1.4.3"
+slug: squid
+init: false
+description: Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more...
+url: https://github.com/jensweimann/hassio-addons/tree/master/squid
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+startup: application
+apparmor: true
+boot: auto
+options:
+  configurationFile: "/share/squid/squid.conf"
+ports:
+  3128/tcp: 3128
+  3129/tcp: 3129
+ports_description:
+  3128/tcp: HTTP Port
+  3129/tcp: HTTPS Port
+map:
+  - share
+  - ssl
+schema:
+  configurationFile: str

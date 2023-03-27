@@ -1,0 +1,31 @@
+name: Dante - A free SOCKS server
+version: "1.1.0"
+slug: dante
+description: Dante is a product developed by Inferno Nettverk A/S. It consists of
+  a SOCKS server and a SOCKS client, implementing RFC 1928 and related standards.
+  It is a flexible product that can be used to provide convenient and secure network
+  connectivity.
+url: https://www.inet.no/dante/
+arch:
+- armhf
+- armv7
+- aarch64
+- amd64
+- i386
+init: false
+startup: application
+boot: auto
+options:
+  configurationFile: "/share/dante/sockd.conf"
+  user: danteUser
+  password: ""
+ports:
+  1080/tcp: 1080
+ports_description:
+  1080/tcp: SOCKS Port
+map:
+- share
+schema:
+  configurationFile: str
+  user: str
+  password: str
