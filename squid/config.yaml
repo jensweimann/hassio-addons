@@ -1,5 +1,5 @@
 name: Squid Proxy
-version: "1.4.4"
+version: "1.4.5"
 slug: squid
 init: false
 description: Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more...
@@ -27,5 +27,5 @@ map:
 schema:
   configurationFile: str
 backup_exclude: [
-     "/*"
+     "image.tar"
    ]
