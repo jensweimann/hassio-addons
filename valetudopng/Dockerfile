@@ -1,0 +1,12 @@
+ARG BUILD_FROM
+FROM $BUILD_FROM
+
+ARG BUILD_ARCH
+
+ENV LANG C.UTF-8
+ENV BUILD_ARCH $BUILD_ARCH
+
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh"]

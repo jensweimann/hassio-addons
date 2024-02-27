@@ -1,0 +1,34 @@
+name: ValetudoPNG
+version: "1.0.0"
+slug: valetudopng
+init: false
+description: ValetudoPNG is a service designed to render map from Valetudo-enabled vacuum robot into a more accessible PNG format.
+url: https://github.com/erkexzcx/valetudopng
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+map:
+  # this will create the folder with slug name in /addon_configs
+  #  and mount that folder in the container with path /config
+  - addon_config
+backup_exclude:
+  - valetudopng* # don't backup the binary (will auto-download)
+options:
+  github_release_version: "v1.0.16"
+  run_local_binary: false
+  local_binary_name: your_valetudopng_binary_file
+schema:
+  github_release_version: str
+  run_local_binary: bool
+  local_binary_name: str?
+ports:
+  3000/tcp: null
+ports_description:
+  3000/tcp: Port serving the debug map (Not required for Ingress)
+ingress: true
+ingress_port: 3000
+ingress_entry: api/map/image/debug
+panel_title: ValetudoPNG
+panel_icon: mdi:floor-plan
